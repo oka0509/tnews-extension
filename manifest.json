@@ -1,0 +1,12 @@
+{
+  "name": "tnews-extension",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "description": "chrome extension that disables the prefectures that are unnecessary",
+  "content_scripts": [{
+    "matches": ["https://www.tnews.jp/*"],
+    "js": [
+      "content.js"
+    ]
+  }]
+}
