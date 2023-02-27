@@ -13,10 +13,12 @@
 //   }
 // }
 
-chrome.storage.local.set({'key': 'ネコ猫'}, function () {
-});
+// chrome.storage.local.set({'key': 'ネコ猫'}, function () {
+// });
 
-chrome.storage.local.get("key", function (value) {
-  var value_data = value.key;
-  console.log(value_data);
-});
+// chrome.storage.local.get("key", function (value) {
+//   var value_data = value.key;
+//   console.log(value_data);
+// });
+
+
