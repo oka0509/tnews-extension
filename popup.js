@@ -30,6 +30,12 @@ let init = async (arr) => {
   // let aaa = await getLocalStorage("北海道");
   // console.log(aaa);
   //content.jsに対して変更処理を送る
+  chrome.tabs.query( {active:true, currentWindow:true}, (tabs) => {
+    // 取得したタブid(tabs[0].id)を利用してsendMessageする
+    chrome.tabs.sendMessage(tabs[0].id, {message: 'prefecturesRegistered'}, (item) => {
+      console.log(item);
+    });
+  });
 };
 submitButton.addEventListener("click", ()=> {
   let checkboxes = document.getElementsByName("prefecture");

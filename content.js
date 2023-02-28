@@ -1,18 +1,23 @@
-// let prefecturesDiv = document.getElementById('baito');
-// let prefecturesList = prefecturesDiv.children;
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  let selection = "foo";
+  console.log(request.message);
 
-// let prefecturesListLength = prefecturesList.length;
-// console.log(prefecturesListLength);
+  let prefecturesDiv = document.getElementById('baito');
+  let prefecturesList = prefecturesDiv.children;
 
-// for(let i = 0; i< prefecturesListLength; i++) {
-//   if(prefecturesList[i].tagName == 'SPAN' &&
-//   prefecturesList[i].firstChild.textContent != '東京都' && 
-//   prefecturesList[i].firstChild.textContent != '過去の求人' ) {
-//     console.log(prefecturesList[i].firstChild.textContent);
-//     prefecturesList[i].style.visibility = 'hidden';
-//   }
-// }
+  let prefecturesListLength = prefecturesList.length;
+  console.log(prefecturesListLength);
 
+  for(let i = 0; i< prefecturesListLength; i++) {
+    if(prefecturesList[i].tagName == 'SPAN' &&
+    prefecturesList[i].firstChild.textContent != '東京都' && 
+    prefecturesList[i].firstChild.textContent != '過去の求人' ) {
+      console.log(prefecturesList[i].firstChild.textContent);
+      prefecturesList[i].style.visibility = 'hidden';
+    }
+  }
+  sendResponse(selection);
+});
 // chrome.storage.local.set({'key': 'ネコ猫'}, function () {
 // });
 
