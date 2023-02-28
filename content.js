@@ -32,12 +32,16 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   
     for(let i = 0; i< prefecturesListLength; i++) {
       if(prefecturesList[i].tagName == 'SPAN' &&
-      !registeredPrefectures.includes(prefecturesList[i].firstChild.textContent) && 
-      prefecturesList[i].firstChild.textContent != '過去の求人' ) {
-        console.log(prefecturesList[i].firstChild.textContent);
-        prefecturesList[i].style.visibility = 'hidden';
+      prefecturesList[i].firstChild.textContent != '過去の求人') {
+        if(!registeredPrefectures.includes(prefecturesList[i].firstChild.textContent)) {
+          console.log(prefecturesList[i].firstChild.textContent);
+          prefecturesList[i].style.visibility = 'hidden';
+        }
+        else {
+          prefecturesList[i].style.visibility = 'visible';
+        }
       }
     }
+    sendResponse(selection);
   });
-  sendResponse(selection);
 });
