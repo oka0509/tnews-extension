@@ -16,8 +16,8 @@ chrome.storage.local.get(null, (items) => {
   }
 });
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  let selection = "foo";
+chrome.runtime.onMessage.addListener((request, sendResponse) => {
+  let resText = "visibility changed";
   console.log(request.message);
 
   chrome.storage.local.get(null, (items) => {
@@ -42,6 +42,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         }
       }
     }
-    sendResponse(selection);
   });
+  sendResponse(resText);
+  return;
 });

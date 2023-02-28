@@ -1,0 +1,7 @@
+body {
+  width: 400px;
+}
+
+label, input[type='checkbox'] {
+  cursor: pointer;
+}

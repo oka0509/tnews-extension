@@ -41,8 +41,8 @@ let init = async (arr) => {
   //content.jsに対して変更処理を送る
   chrome.tabs.query( {active:true, currentWindow:true}, (tabs) => {
     // 取得したタブid(tabs[0].id)を利用してsendMessageする
-    chrome.tabs.sendMessage(tabs[0].id, {message: 'prefecturesRegistered'}, (item) => {
-      console.log(item);
+    chrome.tabs.sendMessage(tabs[0].id, {message: 'prefecturesRegistered'}, (res) => {
+      console.log(res);
     });
   });
 };
