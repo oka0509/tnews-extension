@@ -27,10 +27,7 @@ chrome.runtime.onMessage.addListener((request, sendResponse) => {
     let prefecturesDiv = document.getElementById('baito');
     let prefecturesList = prefecturesDiv.children;
   
-    let prefecturesListLength = prefecturesList.length;
-    console.log(prefecturesListLength);
-  
-    for(let i = 0; i< prefecturesListLength; i++) {
+    for(let i = 0; i< prefecturesList.length; i++) {
       if(prefecturesList[i].tagName == 'SPAN' &&
       prefecturesList[i].firstChild.textContent != '過去の求人') {
         if(!registeredPrefectures.includes(prefecturesList[i].firstChild.textContent)) {
@@ -42,7 +39,7 @@ chrome.runtime.onMessage.addListener((request, sendResponse) => {
         }
       }
     }
+    sendResponse(resText);
   });
-  sendResponse(resText);
-  return;
+  return true;
 });
