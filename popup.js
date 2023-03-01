@@ -32,9 +32,7 @@ function clearLocalStorage() {
 
 async function migrate(arr) {
   await clearLocalStorage();
-  for(let i = 0; i< arr.length; i++) {
-    await setLocalStorage({[arr[i].defaultValue]: true});
-  }
+  await Promise.all(arr.map(async (item) => await setLocalStorage({[item.defaultValue]: true})));
   //content.jsに対して変更処理を送る
   chrome.tabs.query( {active:true, currentWindow:true}, (tabs) => {
     // 取得したタブid(tabs[0].id)を利用してsendMessageする
